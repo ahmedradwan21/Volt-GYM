@@ -91,19 +91,24 @@ export default function HeroSection() {
         </div>
       </div>
 
-      {/* Bottom marquee strip — brand rhythm without noise */}
+      {/* Bottom marquee strip — brand rhythm without noise.
+          Track is width:max-content with two identical halves; the loop
+          translates exactly -50% so the duplicate never misaligns.
+          Arabic phrases get NO letter-spacing (breaks glyph joining). */}
       <div className="absolute inset-x-0 bottom-0 z-10 overflow-hidden border-t border-volt-line/50 bg-volt-black/70 py-3 backdrop-blur-sm" aria-hidden="true">
-        <div className="flex w-[200%] animate-marquee gap-8" dir="ltr">
+        <div className="flex w-max animate-marquee" dir="ltr">
           {[0, 1].map((half) => (
-            <div key={half} className="flex w-1/2 shrink-0 items-center justify-around gap-8">
+            <div key={half} className="flex shrink-0 items-center gap-8 pe-8">
               {['طلّع البطل اللي جواك', 'VOLT GYM', 'جيم · كلاسات · كاراتيه أطفال', 'سوهاج — الزهراء'].map(
                 (word, i) => (
                   <span
                     key={i}
-                    className="flex items-center gap-8 whitespace-nowrap font-display text-sm font-semibold uppercase tracking-[0.25em] text-volt-gray/70"
+                    className={`flex shrink-0 items-center gap-8 whitespace-nowrap font-display text-sm font-semibold leading-none text-volt-gray/70 ${
+                      /^[A-Za-z0-9 .·—-]+$/.test(word) ? 'uppercase tracking-[0.25em]' : ''
+                    }`}
                   >
                     {word}
-                    <Play size={10} className="text-volt-red" fill="currentColor" />
+                    <Play size={10} className="shrink-0 text-volt-red" fill="currentColor" />
                   </span>
                 )
               )}
