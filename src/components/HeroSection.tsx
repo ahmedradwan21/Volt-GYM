@@ -96,7 +96,7 @@ export default function HeroSection() {
       {/* Bottom marquee strip — brand rhythm without noise.
           Track is width:max-content; each half repeats the words 3x so it
           always exceeds the viewport, and the loop translates exactly -50%. */}
-      <div className="absolute inset-x-0 bottom-0 z-10 overflow-hidden border-t border-volt-line/50 bg-volt-black/70 py-3 backdrop-blur-sm" aria-hidden="true">
+      <div dir="ltr" className="absolute inset-x-0 bottom-0 z-10 overflow-hidden border-t border-volt-line/50 bg-volt-black/70 py-3 backdrop-blur-sm" aria-hidden="true">
         <div className="flex w-max animate-marquee" dir="ltr">
           {[0, 1].map((half) => (
             <div key={half} className="flex shrink-0 items-center gap-12 pr-12">
