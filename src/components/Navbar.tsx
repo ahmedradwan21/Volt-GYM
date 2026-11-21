@@ -7,6 +7,7 @@ const navItems = [
   { label: 'الرئيسية', to: '/#home' },
   { label: 'عن VOLT', to: '/#about' },
   { label: 'البرامج', to: '/#programs' },
+  { label: 'مواعيد التمرين', to: '/#hours' },
   { label: 'الكلاسات', to: '/#classes' },
   { label: 'الكباتن', to: '/#coaches' },
   { label: 'الكاراتيه', to: '/#karate' },
@@ -14,7 +15,7 @@ const navItems = [
   { label: 'تواصل معنا', to: '/#contact' },
 ];
 
-const sectionIds = ['home', 'about', 'programs', 'classes', 'coaches', 'karate', 'community', 'contact'];
+const sectionIds = ['home', 'about', 'programs', 'hours', 'classes', 'coaches', 'karate', 'community', 'contact'];
 
 /** Fix core browser/Safari RTL quirk: translateX direction for the mobile drawer. */
 export default function Navbar() {

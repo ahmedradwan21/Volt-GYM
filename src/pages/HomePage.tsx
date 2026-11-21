@@ -4,6 +4,7 @@ import Navbar from '@/components/Navbar';
 import HeroSection from '@/components/HeroSection';
 import AboutSection from '@/components/AboutSection';
 import ProgramsSection from '@/components/ProgramsSection';
+import TrainingHoursSection from '@/components/TrainingHoursSection';
 import ScheduleSection from '@/components/ScheduleSection';
 import CoachesSection from '@/components/CoachesSection';
 import CoachAttendanceSection from '@/components/CoachAttendanceSection';
@@ -41,6 +42,7 @@ function Home() {
       <HeroSection />
       <AboutSection />
       <ProgramsSection />
+      <TrainingHoursSection />
       <ScheduleSection />
       <CoachesSection />
       <CoachAttendanceSection />
