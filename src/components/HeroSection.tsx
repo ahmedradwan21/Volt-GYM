@@ -4,6 +4,8 @@ import { ChevronDown, Play } from 'lucide-react';
 import { voltConfig } from '@/data/voltConfig';
 import VoltImage from '@/components/VoltImage';
 
+const words = ['طلّع البطل اللي جواك', 'VOLT GYM', 'جيم · كلاسات · كاراتيه أطفال', 'سوهاج — الزهراء'];
+
 export default function HeroSection() {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [reducedMotion, setReducedMotion] = useState(false);
@@ -92,26 +94,23 @@ export default function HeroSection() {
       </div>
 
       {/* Bottom marquee strip — brand rhythm without noise.
-          Track is width:max-content with two identical halves; the loop
-          translates exactly -50% so the duplicate never misaligns.
-          Arabic phrases get NO letter-spacing (breaks glyph joining). */}
+          Track is width:max-content; each half repeats the words 3x so it
+          always exceeds the viewport, and the loop translates exactly -50%. */}
       <div className="absolute inset-x-0 bottom-0 z-10 overflow-hidden border-t border-volt-line/50 bg-volt-black/70 py-3 backdrop-blur-sm" aria-hidden="true">
         <div className="flex w-max animate-marquee" dir="ltr">
           {[0, 1].map((half) => (
-            <div key={half} className="flex shrink-0 items-center gap-8 pe-8">
-              {['طلّع البطل اللي جواك', 'VOLT GYM', 'جيم · كلاسات · كاراتيه أطفال', 'سوهاج — الزهراء'].map(
-                (word, i) => (
-                  <span
-                    key={i}
-                    className={`flex shrink-0 items-center gap-8 whitespace-nowrap font-display text-sm font-semibold leading-none text-volt-gray/70 ${
-                      /^[A-Za-z0-9 .·—-]+$/.test(word) ? 'uppercase tracking-[0.25em]' : ''
-                    }`}
-                  >
-                    {word}
-                    <Play size={10} className="shrink-0 text-volt-red" fill="currentColor" />
-                  </span>
-                )
-              )}
+            <div key={half} className="flex shrink-0 items-center gap-12 pr-12">
+              {[...words, ...words, ...words].map((word, i) => (
+                <span
+                  key={i}
+                  className={`flex shrink-0 items-center gap-12 whitespace-nowrap font-display text-sm font-semibold text-volt-gray/70 ${
+                    word === 'VOLT GYM' ? 'uppercase tracking-[0.25em]' : ''
+                  }`}
+                >
+                  {word}
+                  <Play size={10} className="shrink-0 text-volt-red" fill="currentColor" />
+                </span>
+              ))}
             </div>
           ))}
         </div>

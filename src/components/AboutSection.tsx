@@ -13,7 +13,7 @@ const pillars = [
 
 export default function AboutSection() {
   return (
-    <section id="about" className="scroll-mt-24 bg-volt-black py-20 lg:py-28">
+    <section id="about" className="scroll-mt-24 bg-volt-black pb-20 pt-10 lg:pb-28 lg:pt-16">
       <div className="volt-container">
         <SectionHeading
           eyebrow="عن VOLT"
